@@ -1,0 +1,12 @@
+version: '2'
+services:
+  futa-nifi-lsc:
+    environment:
+      - NIFI_WEB_HTTP_PORT=9000
+    image: apache/nifi:1.8.0
+    volumes:
+      - ./jdbc_driver:/opt/jdbc_driver
+      - ./checkin_files:/opt/checkin_files
+      - ./truststore:/opt/truststore
+    ports:
+      - "9000:9000"
